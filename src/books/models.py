@@ -1,7 +1,7 @@
 from sqlmodel import SQLModel, Field
 from sqlalchemy import Column
 import sqlalchemy.dialects.postgresql as pg
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 import uuid
 
 
@@ -26,7 +26,7 @@ class Book(SQLModel, table=True):
         sa_column=Column(
             pg.TIMESTAMP,
             nullable=False,
-            default=lambda: datetime.now(datetime.timezone.utc)
+            default=lambda: datetime.now()
         )
     )
 
@@ -34,8 +34,8 @@ class Book(SQLModel, table=True):
         sa_column=Column(
             pg.TIMESTAMP,
             nullable=False,
-            default=lambda: datetime.now(datetime.timezone.utc),
-            onupdate=lambda: datetime.now(datetime.timezone.utc)
+            default=lambda: datetime.now(),
+            onupdate=lambda: datetime.now()
         )
     )
 
