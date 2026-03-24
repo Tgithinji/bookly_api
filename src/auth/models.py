@@ -20,6 +20,7 @@ class User(SQLModel, table=True):
     email: str = Field(max_length=255)
     first_name: str = Field(max_length=255)
     last_name: str = Field(max_length=255)
+    password_hash: str = Field(max_length=255, exclude=False)
     is_verified: bool = Field(default=False)
     created_at: datetime = Field(
         sa_column=Column(
