@@ -1,3 +1,5 @@
 benv/
 __pycache__/
 .env
+venv
+
