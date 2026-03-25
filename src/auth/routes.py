@@ -3,6 +3,7 @@ from .schemas import UserCreate, User
 from .service import AuthService
 from src.db.db_engine import get_session
 from sqlmodel.ext.asyncio.session import AsyncSession
+from .utils import create_access_token, decode_token
 
 
 auth_router = APIRouter()
