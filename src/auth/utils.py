@@ -25,7 +25,7 @@ def create_access_token(user_data:dict, expiry: timedelta = None, refresh: bool 
     if expiry is not None:
         expire = now + expiry
     elif refresh:
-        expire = now + timedelta(days=7)
+        expire = now + timedelta(days=Config.REFRESH_TOKEN_EXPIRY_DAYS)
     else:
         expire = now + timedelta(minutes=Config.ACCESS_TOKEN_EXPIRE_MINUTES)
 
